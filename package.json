@@ -1,0 +1,25 @@
+{
+  "name": "movie-madness",
+  "version": "1.0.0",
+  "description": "### Database Queries - CREATE TABLE \"movie\" ( \t\"id\" SERIAL PRIMARY KEY, \t\"name\" VARCHAR(255) NOT NULL, \t\"genre\" VARCHAR(100) NOT NULL, \t\"release_date\" DATE NOT NULL, \t\"run_time\" TIME NOT NULL, \t\"image\" VARCHAR );",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reesewesterhoff/movie-madness.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reesewesterhoff/movie-madness/issues"
+  },
+  "homepage": "https://github.com/reesewesterhoff/movie-madness#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "pg": "^7.4.3"
+  }
+}
