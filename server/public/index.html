@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/angular.js"></script>
+    <script src="vendors/angular-route.js"></script>
+    <script src="scripts/client.js"></script>
     <title>Movie Madness</title>
 </head>
-<body>
+<body ng-app="MovieApp" ng-controller="MovieController as vm">
     <h1>CHUH</h1>
+    {{vm.message}}
 </body>
 </html>
