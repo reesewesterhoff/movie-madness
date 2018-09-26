@@ -7,10 +7,17 @@
     <script src="vendors/angular.js"></script>
     <script src="vendors/angular-route.js"></script>
     <script src="scripts/client.js"></script>
+    <script src="scripts/controllers/home.controller.js"></script>
+    <script src="scripts/controllers/add.controller.js"></script>
+    <script src="scripts/controllers/manage.controller.js"></script>
+    <script src="scripts/controllers/favorites.controller.js"></script>
     <title>Movie Madness</title>
 </head>
-<body ng-app="MovieApp" ng-controller="MovieController as vm">
-    <h1>CHUH</h1>
-    {{vm.message}}
+<body ng-app="MovieApp">
+    <ng-include src="'views/navigation.html'"></ng-include>
+    <br>
+    <br>
+    <ng-view></ng-view>
+   
 </body>
 </html>

@@ -1,0 +1,15 @@
+<div>
+    <p>Add</p>
+</div>
+<br>
+<div class="inputForm">
+        <h2>Add A Movie</h2>
+        <form ng-submit="vm.addMovie()">
+            <input ng-model="vm.movieToSend.name" type="text" placeholder="Name">
+            <input ng-model="vm.movieToSend.genre" type="text" placeholder="Genre">
+            <input ng-model="vm.movieToSend.release_date" type="text" placeholder="Date">
+            <input ng-model="vm.movieToSend.run_time" type="text" placeholder="Run Time">
+            <input ng-model="vm.movieToSend.image" type="text" placeholder="Image URL">
+            <input type="submit" value="Add Movie">
+        </form>
+    </div>
