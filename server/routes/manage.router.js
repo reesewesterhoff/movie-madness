@@ -18,7 +18,8 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     pool.query(`SELECT "genre"."id", "genre"."name", COUNT("movie"."genre_id") FROM "genre"
                 LEFT OUTER JOIN "movie" ON "movie"."genre_id"="genre"."id"
-                GROUP BY "genre"."id";`)
+                GROUP BY "genre"."id"
+                ORDER BY "genre"."name";`)
     .then(results => {
         res.send(results.rows);
     }).catch(error => {
@@ -27,9 +28,9 @@ router.get('/', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/', (req, res) => {
     pool.query(`DELETE FROM "genre"
-    WHERE "id"=$1;`, [req.params.id])
+    WHERE "id"=$1;`, [req.query.id])
     .then(() => {
         res.sendStatus(200);
     }).catch(error => {

@@ -18,7 +18,10 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    pool.query(`SELECT * FROM "movie" ORDER BY "id" DESC;`)
+    pool.query(`SELECT "movie"."id", "movie"."name", "movie"."genre_id", "movie"."release_date", "movie"."run_time", "movie"."image", "genre"."name" AS "genre" 
+                FROM "movie"
+                JOIN "genre" ON "movie"."genre_id"="genre"."id"
+                ORDER BY "id" DESC;`)
     .then(results => {
         res.send(results.rows);
     }).catch(error => {
