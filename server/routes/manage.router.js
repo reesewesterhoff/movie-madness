@@ -15,4 +15,14 @@ router.post('/', (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    pool.query(`SELECT * FROM "genre";`)
+    .then(results => {
+        res.send(results.rows);
+    }).catch(error => {
+        console.log('error getting genres from db', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;

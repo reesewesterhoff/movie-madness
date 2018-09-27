@@ -17,4 +17,18 @@ movieApp.controller('ManageController', ['$http', function($http) {
         });
     }
 
+    vm.getGenres = function () {
+        $http({
+            method: 'GET',
+            url: '/manage'
+        }).then(function(response) {
+            console.log('back from server with genres', response.data);
+            vm.genreArray = response.data;
+        }).catch(function(error) {
+            console.log('error getting genres from server', error); 
+        });
+    }
+
+    vm.getGenres();
+
 }]);
