@@ -1,3 +1,13 @@
 <div>
     <p>Manage</p>
 </div>
+
+<div>
+        <h2>Add A Movie</h2>
+        <form ng-submit="vm.addGenre()">
+            <input ng-model="vm.genreToSend.name" type="text" placeholder="Genre Name">
+            <input type="submit" value="Add Genre">
+        </form>
+</div>
+
+{{vm}}

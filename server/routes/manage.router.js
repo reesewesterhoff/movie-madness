@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     pool.query(`INSERT INTO "genre" ("name")
-    VALUES $1`, [req.body.name])
+    VALUES ($1);`, [req.body.name])
     .then(() => {
         res.sendStatus(201);
     }).catch(error => {
