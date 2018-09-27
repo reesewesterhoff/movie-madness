@@ -5,6 +5,7 @@ movieApp.controller('AddController', ['$http', function($http) {
     vm.movieArray = [];
 
     vm.addMovie = function () {
+        console.log(vm.movieToSend);
         $http({
             method: 'POST',
             url: '/add',
