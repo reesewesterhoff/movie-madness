@@ -16,7 +16,9 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    pool.query(`SELECT * FROM "genre";`)
+    pool.query(`SELECT "genre"."id", "genre"."name", COUNT("movie"."genre_id") FROM "genre"
+                LEFT OUTER JOIN "movie" ON "movie"."genre_id"="genre"."id"
+                GROUP BY "genre"."id";`)
     .then(results => {
         res.send(results.rows);
     }).catch(error => {

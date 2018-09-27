@@ -23,7 +23,7 @@
         <tbody>
             <tr ng-repeat="genre in vm.genreArray">
                 <td>{{genre.name}}</td>
-                <td>Number of movies with genre</td>
+                <td>{{genre.count}}</td>
                 <td><button ng-click="vm.deleteGenre(genre.id)">Delete</button></td>
             </tr>
         </tbody>
