@@ -6,7 +6,7 @@
     <h2>Add A Movie</h2>
     <form ng-submit="vm.addMovie()">
         <input ng-model="vm.movieToSend.name" type="text" placeholder="Name">
-        <input ng-model="vm.movieToSend.genre" type="text" placeholder="Genre">
+        <input ng-model="vm.movieToSend.genre_id" type="number" placeholder="Genre">
         <input ng-model="vm.movieToSend.release_date" type="date" placeholder="Date">
         <input ng-model="vm.movieToSend.run_time" type="text" placeholder="Run Time">
         <input ng-model="vm.movieToSend.image" type="text" placeholder="Image URL">
@@ -23,7 +23,7 @@
             <img class="card-img-top" ng-src="{{movie.image}}">
             <div class="card-body">
                 <h4 class="card-title">{{movie.name}}</h4>
-                <h5 class="card-text">{{movie.genre}}</h5>
+                <h5 class="card-text">{{movie.genre_id}}</h5>
                 <h6 class="card-text">{{movie.release_date}}</h6>
                 <h6 class="card-text">{{movie.run_time}}</h6>
             </div>
