@@ -7,6 +7,9 @@
     <form ng-submit="vm.addMovie()">
         <input ng-model="vm.movieToSend.name" type="text" placeholder="Name">
         <input ng-model="vm.movieToSend.genre_id" type="number" placeholder="Genre">
+        <select ng-options="genre.id as genre.name for genre in vm.genreArray" ng-model="vm.movieToSend.genre_id">
+            <option value="">----Please Select----</option>
+        </select>
         <input ng-model="vm.movieToSend.release_date" type="date" placeholder="Date">
         <input ng-model="vm.movieToSend.run_time" type="text" placeholder="Run Time">
         <input ng-model="vm.movieToSend.image" type="text" placeholder="Image URL">
@@ -31,4 +34,3 @@
         </div>
     </div>
 </div>
-

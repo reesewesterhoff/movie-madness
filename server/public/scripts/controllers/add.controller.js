@@ -3,6 +3,7 @@ movieApp.controller('AddController', ['$http', function($http) {
     console.log('running AddController');
     vm.movieToSend = {};
     vm.movieArray = [];
+    vm.genreArray = [];
 
     vm.addMovie = function () {
         console.log(vm.movieToSend);
@@ -48,6 +49,19 @@ movieApp.controller('AddController', ['$http', function($http) {
         });
     }
 
+    vm.getGenres = function () {
+        $http({
+            method: 'GET',
+            url: '/manage'
+        }).then(function (response) {
+            console.log('back from server with genres', response.data);
+            vm.genreArray = response.data;
+            console.log(vm.genreArray);
+        }).catch(function (error) {
+            console.log('error getting genres from server', error);
+        });
+    }
 
+    vm.getGenres();
     vm.getMovies();
 }]);
