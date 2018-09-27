@@ -19,6 +19,7 @@
   "homepage": "https://github.com/reesewesterhoff/movie-madness#readme",
   "dependencies": {
     "angular": "^1.7.4",
+    "angular-material": "^1.1.10",
     "angular-route": "^1.7.4",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",

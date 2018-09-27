@@ -13,6 +13,7 @@ movieApp.controller('AddController', ['$http', function($http) {
         }).then(function(response) {
             console.log('post request to server to add movie', response);
             vm.movieToSend = {};
+            vm.getMovies();
         }).catch(function(error) {
             console.log('error posting new movie to server', error);
         });
@@ -31,6 +32,19 @@ movieApp.controller('AddController', ['$http', function($http) {
             });
         }).catch(function(error) {
             console.log('error getting movies from server', error);
+        });
+    }
+
+    vm.deleteMovie = function (movieID) {
+        console.log(movieID);
+        $http({
+            method: 'DELETE',
+            url: `/add/${movieID}`
+        }).then(function(response) {
+            console.log('movie deleted from server', response);
+            vm.getMovies();
+        }).catch(function(error) {
+            console.log('error deleting movie from server', error);
         });
     }
 
