@@ -13,5 +13,24 @@
             <input type="submit" value="Add Movie">
         </form>
     </div>
+    <br>
+    <br>
+    <h2 class="headline">Recently Added Movies</h2>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="card border-light m-3" style="width: 15rem;" ng-repeat="movie in vm.movieArray">
+                <img class="card-img-top" ng-src="{{movie.image}}">
+                <div class="card-body">
+                    <h4 class="card-title">{{movie.name}}</h4>
+                    <h5 class="card-text">{{movie.genre}}</h5>
+                    <h6 class="card-text">{{movie.release_date}}</h6>
+                    <h6 class="card-text">{{movie.run_time}}</h6>
+                </div>
+                <button ng-click="vm.deleteHouse(property)" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
 
-    {{vm}}
+
+  

@@ -17,4 +17,14 @@ router.post('/', (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    pool.query(`SELECT * FROM "movie" ORDER BY "id" DESC;`)
+    .then(results => {
+        res.send(results.rows);
+    }).catch(error => {
+        console.log('error getting movies from database', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;
