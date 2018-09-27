@@ -12,6 +12,7 @@ movieApp.controller('ManageController', ['$http', function($http) {
         }).then(function(response) {
             console.log('genre post back from server with', response);
             vm.genreToSend = {};
+            vm.getGenres();
         }).catch(function(error) {
             console.log('error posting new genre to server', error);
         });
@@ -26,6 +27,18 @@ movieApp.controller('ManageController', ['$http', function($http) {
             vm.genreArray = response.data;
         }).catch(function(error) {
             console.log('error getting genres from server', error); 
+        });
+    }
+
+    vm.deleteGenre = function (genreID) {
+        $http({
+            method: 'DELETE',
+            url: `/manage/${genreID}`
+        }).then(function(response) {
+            console.log('genre deleted from server', response);
+            vm.getGenres();
+        }).catch(function(error) {
+            console.log('error deleting genre from server', error);
         });
     }
 
