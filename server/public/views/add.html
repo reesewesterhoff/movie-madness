@@ -6,7 +6,6 @@
     <h2>Add A Movie</h2>
     <form ng-submit="vm.addMovie()">
         <input ng-model="vm.movieToSend.name" type="text" placeholder="Name">
-        <input ng-model="vm.movieToSend.genre_id" type="number" placeholder="Genre">
         <select ng-options="genre.id as genre.name for genre in vm.genreArray" ng-model="vm.movieToSend.genre_id">
             <option value="">----Please Select----</option>
         </select>

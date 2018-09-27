@@ -1,5 +1,4 @@
-console.log('client js loaded');
-const movieApp = angular.module('MovieApp', ['ngRoute']);
+const movieApp = angular.module('MovieApp', ['ngRoute', 'ngMaterial']);
 
 movieApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
