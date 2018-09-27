@@ -41,8 +41,8 @@
             <md-card-title-text>
                 <span class="md-headline">{{movie.name}}</span>
                 <span class="md-subhead">{{movie.genre}}</span>
-                <span class="md-subhead">{{movie.release_date}}</span>
-                <span class="md-subhead">{{movie.run_time}}</span>
+                <span class="md-subhead">Release Date: {{movie.release_date}}</span>
+                <span class="md-subhead">Run Time: {{movie.run_time}}</span>
             </md-card-title-text>
         </md-card-title>
         <md-card-content>
@@ -52,14 +52,14 @@
             <br>
             <div>
                 <md-card-actions layout="row">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon>favorite</md-icon>
+                    <md-button id="thumbDown" ng-click="toggleDown = !toggleDown" class="md-icon-button" aria-label="Favorite">
+                        <md-icon ng-class="{'red':toggle}">thumb_down_alt</md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" aria-label="Settings">
-                        <md-icon>settings</md-icon>
+                    <md-button ng-click="toggleUp = !toggleUp" class="md-icon-button" aria-label="Settings">
+                        <md-icon ng-class="{'green':toggle}">thumb_up_alt</md-icon>
                     </md-button>
                     <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon>share</md-icon>
+                        <md-icon>favorite</md-icon>
                     </md-button>
                 </md-card-actions>
             </div>
