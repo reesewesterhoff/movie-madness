@@ -29,6 +29,16 @@ router.get('/', (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+    pool.query(`DELETE FROM "favorite_movie"
+    WHERE "id"=$1;`, [req.params.id])
+    .then(() => {
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log('error deleting movie from db', error);
+        res.sendStatus(500);        
+    });
+});
 
 
 module.exports = router;
