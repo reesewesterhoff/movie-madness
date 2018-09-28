@@ -23,9 +23,11 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
             method: 'GET',
             url: '/add'
         }).then(function (response) {
+            
             vm.movieArray = response.data.map(function (movie) {
-                movie.release_date = moment(movie.release_date).format("MMM Do YYYY");
-                movie.run_time = moment.duration(movie.run_time).hours() + ' hr ' + moment.duration(movie.run_time).minutes() + ' mins';
+                console.log(movie.run_time);
+                movie.release_date = moment(movie.release_date).format("M/D/YYYY");
+                movie.run_time = moment(movie.run_time, 'hh:mm:ss').format('h:mm');
                 return movie;
             });
         }).catch(function (error) {
@@ -68,6 +70,18 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
             vm.genreArray = response.data;
         }).catch(function (error) {
             console.log('error getting genres from server', error);
+        });
+    }
+
+    vm.addToFavorites = function (movie) {
+        $http({
+            method: 'POST',
+            url: '/favorites',
+            data: movie
+        }).then(function(response) {
+            console.log(response);
+        }).catch(function(error) {
+            console.log('error posting to favorites', error);
         });
     }
 

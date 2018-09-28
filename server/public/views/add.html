@@ -86,7 +86,7 @@
                         <md-button ng-click="toggleUp = !toggleUp" class="md-icon-button" aria-label="Settings">
                             <md-icon ng-class="{'green':toggleUp}">thumb_up_alt</md-icon>
                         </md-button>
-                        <md-button ng-click="toggleFave = !toggleFave" class="md-icon-button" aria-label="Share">
+                        <md-button ng-click="vm.addToFavorites(movie)" ng-click="toggleFave = !toggleFave" class="md-icon-button" aria-label="Share">
                             <md-icon ng-class="{'pink': toggleFave}">favorite</md-icon>
                         </md-button>
                         <md-button ng-click="vm.deleteMovie(movie.id)" class="md-icon-button" aria-label="Share">
