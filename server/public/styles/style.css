@@ -1,9 +1,11 @@
 .red {
-    background-color: rgb(252, 40, 40);
-    border-radius: 50%;
+    color: rgb(252, 40, 40);
 }
 
 .green {
-    background-color: rgb(64, 255, 64);
-    border-radius: 50%;
+    color: rgb(64, 255, 64);
+}
+
+.pink {
+    color: rgb(245, 13, 168);
 }

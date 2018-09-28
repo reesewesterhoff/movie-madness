@@ -53,13 +53,13 @@
             <div>
                 <md-card-actions layout="row">
                     <md-button id="thumbDown" ng-click="toggleDown = !toggleDown" class="md-icon-button" aria-label="Favorite">
-                        <md-icon ng-class="{'red':toggle}">thumb_down_alt</md-icon>
+                        <md-icon ng-class="{'red':toggleDown}">thumb_down_alt</md-icon>
                     </md-button>
                     <md-button ng-click="toggleUp = !toggleUp" class="md-icon-button" aria-label="Settings">
-                        <md-icon ng-class="{'green':toggle}">thumb_up_alt</md-icon>
+                        <md-icon ng-class="{'green':toggleUp}">thumb_up_alt</md-icon>
                     </md-button>
-                    <md-button class="md-icon-button" aria-label="Share">
-                        <md-icon>favorite</md-icon>
+                    <md-button ng-click="toggleFave = !toggleFave" class="md-icon-button" aria-label="Share">
+                        <md-icon ng-class="{'pink': toggleFave}">favorite</md-icon>
                     </md-button>
                 </md-card-actions>
             </div>
