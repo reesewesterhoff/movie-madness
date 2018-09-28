@@ -1,33 +1,36 @@
-<div>
-    <p>Manage</p>
-</div>
-
-<div>
+<div class="allView">
+<br>
+<br>
+<br>
+    <div>
         <h2>Add A Genre Type</h2>
         <form ng-submit="vm.addGenre()">
             <input ng-model="vm.genreToSend.name" type="text" placeholder="Genre Name">
             <input class="btn btn-primary" type="submit" value="Add Genre">
         </form>
-</div>
-<br>
-<br>
-<h2>Active Genres</h2>
-<br>
-<div>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Genre Type</th>
-                <th>Total Movies With Genre</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="genre in vm.genreArray">
-                <td>{{genre.name}}</td>
-                <td>{{genre.count}}</td>
-                <td><md-button class="md-accent md-raised" ng-click="vm.deleteGenre(genre)">Delete</md-button></td>
-            </tr>
-        </tbody>
-    </table>
+    </div>
+    <br>
+    <br>
+    <h2>Active Genres</h2>
+    <br>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Genre Type</th>
+                    <th>Total Movies With Genre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="genre in vm.genreArray">
+                    <td>{{genre.name}}</td>
+                    <td>{{genre.count}}</td>
+                    <td>
+                        <md-button class="md-accent md-raised" ng-click="vm.deleteGenre(genre)">Delete</md-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

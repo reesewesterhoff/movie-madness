@@ -1,23 +1,27 @@
-<br>
-<br>
-<div class="inputForm">
+<div class="allView">
+    <br>
+    <br>
+    <br>
     <h2>Add A Movie</h2>
-    <form ng-submit="vm.addMovie()">
-        <input ng-model="vm.movieToSend.name" type="text" placeholder="Name">
-        <select ng-options="genre.id as genre.name for genre in vm.genreArray" ng-model="vm.movieToSend.genre_id">
-            <option value="" disabled>----Please Select----</option>
-        </select>
-     
-            <md-datepicker ng-model="vm.movieToSend.release_date" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
-      
-        <input ng-model="vm.movieToSend.run_time" type="text" placeholder="HH:MM">
-        <input ng-model="vm.movieToSend.image" type="text" placeholder="Image URL">
-        <input type="submit" value="Add Movie">
-    </form>
-</div>
-<br>
-<br>
-<!-- <h2 class="headline">Recently Added Movies</h2>
+    <br>
+    <br>
+    <div class="inputForm">
+        <form ng-submit="vm.addMovie()">
+            <input required ng-model="vm.movieToSend.name" type="text" placeholder="Name">
+            <select required ng-options="genre.id as genre.name for genre in vm.genreArray" ng-model="vm.movieToSend.genre_id">
+                <option value="" disabled>----Please Select----</option>
+            </select>
+
+            <md-datepicker required ng-model="vm.movieToSend.release_date" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
+
+            <input required ng-model="vm.movieToSend.run_time" type="text" placeholder="HH:MM">
+            <input required ng-model="vm.movieToSend.image" type="text" placeholder="Image URL">
+            <md-button class="md-primary md-raised" type="submit" value="Add Movie">Add Movie</md-button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <!-- <h2 class="headline">Recently Added Movies</h2>
 <br>
 <div class="container">
     <div class="row">
@@ -35,37 +39,40 @@
 </div> -->
 
 
-<div layout="row" layout-wrap>
-    <md-card ng-repeat="movie in vm.movieArray">
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">{{movie.name}}</span>
-                <span class="md-subhead">{{movie.genre}}</span>
-                <span class="md-subhead">Release Date: {{movie.release_date}}</span>
-                <span class="md-subhead">Run Time: {{movie.run_time}}</span>
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-            <div class="md-media-xl card-media"><img style="width: 200px;" ng-src="{{movie.image}}"></div>
-            <br>
-            <br>
-            <br>
-            <div>
-                <md-card-actions layout="row">
-                    <md-button id="thumbDown" ng-click="toggleDown = !toggleDown" class="md-icon-button" aria-label="Favorite">
-                        <md-icon ng-class="{'red':toggleDown}">thumb_down_alt</md-icon>
-                    </md-button>
-                    <md-button ng-click="toggleUp = !toggleUp" class="md-icon-button" aria-label="Settings">
-                        <md-icon ng-class="{'green':toggleUp}">thumb_up_alt</md-icon>
-                    </md-button>
-                    <md-button ng-click="toggleFave = !toggleFave" class="md-icon-button" aria-label="Share">
-                        <md-icon ng-class="{'pink': toggleFave}">favorite</md-icon>
-                    </md-button>
-                    <md-button ng-click="vm.deleteMovie(movie.id)" class="md-icon-button" aria-label="Share">
+    <div layout="row" layout-wrap>
+        <md-card ng-repeat="movie in vm.movieArray">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{movie.name}}</span>
+                    <span class="md-subhead">{{movie.genre}}</span>
+                    <span class="md-subhead">Release Date: {{movie.release_date}}</span>
+                    <span class="md-subhead">Run Time: {{movie.run_time}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <div class="md-media-xl card-media"><img style="width: 200px;" ng-src="{{movie.image}}"></div>
+                <br>
+                <br>
+                <br>
+                <div>
+                    <md-card-actions layout="row">
+                        <md-button id="thumbDown" ng-click="toggleDown = !toggleDown" class="md-icon-button" aria-label="Favorite">
+                            <md-icon ng-class="{'red':toggleDown}">thumb_down_alt</md-icon>
+                        </md-button>
+                        <md-button ng-click="toggleUp = !toggleUp" class="md-icon-button" aria-label="Settings">
+                            <md-icon ng-class="{'green':toggleUp}">thumb_up_alt</md-icon>
+                        </md-button>
+                        <md-button ng-click="toggleFave = !toggleFave" class="md-icon-button" aria-label="Share">
+                            <md-icon ng-class="{'pink': toggleFave}">favorite</md-icon>
+                        </md-button>
+                        <md-button ng-click="vm.deleteMovie(movie.id)" class="md-icon-button" aria-label="Share">
                             <md-icon>delete</md-icon>
                         </md-button>
-                </md-card-actions>
-            </div>
-        </md-card-content>
-    </md-card>
+                    </md-card-actions>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+
+
 </div>

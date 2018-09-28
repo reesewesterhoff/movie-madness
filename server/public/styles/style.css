@@ -1,3 +1,27 @@
+body {
+    background-image: linear-gradient(white, rgb(236, 134, 219));
+}
+
+#navBar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-image: linear-gradient(rgb(214, 184, 253), white);
+}
+
+.allView {
+    margin: 20px;
+}
+
+input {
+    margin: 10px;
+}
+
+md-card {
+    background-color: rgb(255, 255, 255);
+}
+
 .red {
     color: rgb(252, 40, 40);
 }
