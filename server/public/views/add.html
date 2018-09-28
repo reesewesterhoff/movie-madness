@@ -1,15 +1,15 @@
-<div>
-    <p>Add</p>
-</div>
+<br>
 <br>
 <div class="inputForm">
     <h2>Add A Movie</h2>
     <form ng-submit="vm.addMovie()">
         <input ng-model="vm.movieToSend.name" type="text" placeholder="Name">
         <select ng-options="genre.id as genre.name for genre in vm.genreArray" ng-model="vm.movieToSend.genre_id">
-            <option value="">----Please Select----</option>
+            <option value="" disabled>----Please Select----</option>
         </select>
-        <input ng-model="vm.movieToSend.release_date" type="date" placeholder="Date">
+     
+            <md-datepicker ng-model="vm.movieToSend.release_date" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
+      
         <input ng-model="vm.movieToSend.run_time" type="text" placeholder="HH:MM">
         <input ng-model="vm.movieToSend.image" type="text" placeholder="Image URL">
         <input type="submit" value="Add Movie">
@@ -61,6 +61,9 @@
                     <md-button ng-click="toggleFave = !toggleFave" class="md-icon-button" aria-label="Share">
                         <md-icon ng-class="{'pink': toggleFave}">favorite</md-icon>
                     </md-button>
+                    <md-button ng-click="vm.deleteMovie(movie.id)" class="md-icon-button" aria-label="Share">
+                            <md-icon>delete</md-icon>
+                        </md-button>
                 </md-card-actions>
             </div>
         </md-card-content>
