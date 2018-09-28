@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
     <thead>
         <tr>
             <th>
@@ -15,4 +15,24 @@
             </th>
         </tr>
     </thead>
-</table>
+</table> -->
+
+
+<md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+        <md-nav-item default md-nav-href="#!/" name="page1">
+            Home
+        </md-nav-item>
+        <md-nav-item md-nav-href="#!/add" name="page2" ng-disabled="secondTabDisabled">
+            Add Movies
+        </md-nav-item>
+        <md-nav-item md-nav-href="#!/manage" name="page3">
+            Manage Genres
+        </md-nav-item>
+        <md-nav-item md-nav-href="#!/favorites" name="page4" disabled>
+            Favorites
+        </md-nav-item>
+    </md-nav-bar>
+
+
+</md-content>
