@@ -1,3 +1,28 @@
-<div>
-        <p>Favorites</p>
-    </div>
+<br>
+<br>
+<br>
+<div layout="row" layout-wrap>
+    <md-card ng-repeat="movie in vm.favoritesArray">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{movie.name}}</span>
+                <span class="md-subhead">{{movie.genre}}</span>
+                <span class="md-subhead">Release Date: {{movie.release_date}}</span>
+                <span class="md-subhead">Run Time: {{movie.run_time}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <div class="md-media-xl card-media"><img style="width: 200px;" ng-src="{{movie.image}}"></div>
+            <br>
+            <br>
+            <br>
+            <div>
+                <md-card-actions >
+                    <md-button ng-click="vm.deleteMovie(movie.id)" class="md-icon-button" aria-label="Share">
+                        <md-icon>delete</md-icon>
+                    </md-button>
+                </md-card-actions>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

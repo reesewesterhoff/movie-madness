@@ -3,7 +3,6 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
     vm.movieToSend = {};
     vm.movieArray = [];
     vm.genreArray = [];
-    vm.status = '';
 
     vm.addMovie = function () {
         $http({
@@ -23,9 +22,7 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
             method: 'GET',
             url: '/add'
         }).then(function (response) {
-            
             vm.movieArray = response.data.map(function (movie) {
-                console.log(movie.run_time);
                 movie.release_date = moment(movie.release_date).format("M/D/YYYY");
                 movie.run_time = moment(movie.run_time, 'hh:mm:ss').format('h:mm');
                 return movie;

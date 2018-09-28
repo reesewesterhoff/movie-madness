@@ -12,7 +12,7 @@ movieApp.config(['$routeProvider', function($routeProvider) {
         controller: 'ManageController as vm'
     }).when('/favorites', {
         templateUrl: 'views/favorites.html',
-        controller: 'FavoritesController'
+        controller: 'FavoritesController as vm'
     }).otherwise({
         template: '<h1>404</h1>'
     });

@@ -16,6 +16,19 @@ router.post('/', (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    pool.query(`SELECT "favorite_movie"."id", "favorite_movie"."name", "favorite_movie"."genre_id", "favorite_movie"."release_date", "favorite_movie"."run_time", "favorite_movie"."image", "genre"."name" AS "genre" 
+    FROM "favorite_movie"
+    JOIN "genre" ON "favorite_movie"."genre_id"="genre"."id"
+    ORDER BY "id" DESC;`)
+    .then(results => {
+        res.send(results.rows);
+    }).catch(error => {
+        console.log('error getting favorites from db', error);
+        res.sendStatus(500);
+    });
+});
+
 
 
 module.exports = router;
