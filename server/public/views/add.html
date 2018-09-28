@@ -1,7 +1,8 @@
-<!-- <br>
 <br>
 <br>
-<md-content layout="row">
+<br>
+<md-content layout="row" layout-padding>
+    <h2>Add A Movie</h2>
     <br>
     <br>
     <div>
@@ -33,15 +34,15 @@
         <md-input-container flex>
             <md-button class="md-primary md-raised" type="submit" value="Add Movie">Add Movie</md-button>
         </md-input-container>
-    </div> -->
+    </div>
 
 </md-content>
 <div class="allView">
     <br>
     <br>
     <br>
-    <h2>Add A Movie</h2>
-    <br>
+
+    <!-- <br>
     <br>
     <div class="inputForm">
         <form ng-submit="vm.addMovie()">
@@ -56,7 +57,7 @@
             <input required ng-model="vm.movieToSend.image" type="text" placeholder="Image URL">
             <md-button class="md-primary md-raised" type="submit" value="Add Movie">Add Movie</md-button>
         </form>
-    </div>
+    </div> -->
     <br>
     <br>
 
@@ -86,7 +87,8 @@
                         <md-button ng-click="toggleUp = !toggleUp" class="md-icon-button" aria-label="Settings">
                             <md-icon ng-class="{'green':toggleUp}">thumb_up_alt</md-icon>
                         </md-button>
-                        <md-button ng-click="vm.addToFavorites(movie); toggleFave = !toggleFave" class="md-icon-button" aria-label="Share">
+                        <md-button ng-click="vm.addToFavorites(movie); toggleFave = !toggleFave" class="md-icon-button"
+                            aria-label="Share">
                             <md-icon ng-class="{'pink': toggleFave}">favorite</md-icon>
                         </md-button>
                         <md-button ng-click="vm.deleteMovie(movie.id)" class="md-icon-button" aria-label="Share">

@@ -15,6 +15,14 @@ input {
  
 }
 
+md-content {
+    background-color: white;
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    z-index: 100;
+}
+
 md-card {
     background-color: rgb(255, 245, 245);
     background-image: linear-gradient(rgb(243, 151, 228),white);
