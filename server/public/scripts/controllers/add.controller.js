@@ -36,13 +36,13 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
     vm.deleteMovie = function (movieID) {
 
         // Appending dialog to document.body to cover sidenav in docs app
-        var confirm = $mdDialog.confirm()
+        let confirm = $mdDialog.confirm()
             .title('Are you sure you want to delete this title?')
             .textContent('You cannot undo this action')
             .ariaLabel('Lucky day')
             .targetEvent(movieID)
-            .ok('Fuck yeah!')
-            .cancel('Mommy I\'m scared');
+            .ok('Yes!')
+            .cancel('Cancel');
 
         $mdDialog.show(confirm).then(function () {
             $http({

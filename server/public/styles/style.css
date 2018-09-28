@@ -1,6 +1,6 @@
-body {
-    background-image: linear-gradient(white, rgb(236, 134, 219));
-}
+/* body {
+    background-color: rgb(236, 134, 219);
+} */
 
 #navBar {
     position: fixed;
@@ -12,6 +12,7 @@ body {
 
 .allView {
     margin: 20px;
+    background-image: linear-gradient(white, rgb(236, 134, 219));
 }
 
 input {
@@ -19,7 +20,7 @@ input {
 }
 
 md-card {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 245, 245);
 }
 
 .red {

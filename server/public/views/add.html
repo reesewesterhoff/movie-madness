@@ -1,3 +1,41 @@
+<!-- <br>
+<br>
+<br>
+<md-content layout="row">
+    <br>
+    <br>
+    <div>
+        <md-input-container flex>
+            <label>Title</label>
+            <input required ng-model="vm.movieToSend.name" type="text">
+        </md-input-container>
+
+        <md-input-container flex>
+            <select required ng-options="genre.id as genre.name for genre in vm.genreArray" ng-model="vm.movieToSend.genre_id">
+                <option value="" disabled>----Please Select----</option>
+            </select>
+        </md-input-container>
+
+        <md-input-container flex>
+            <md-datepicker required ng-model="vm.movieToSend.release_date" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>HH:MM</label>
+            <input required ng-model="vm.movieToSend.run_time" type="text">
+        </md-input-container>
+
+        <md-input-container flex>
+            <label>Image URL</label>
+            <input required ng-model="vm.movieToSend.image" type="text">
+        </md-input-container>
+
+        <md-input-container flex>
+            <md-button class="md-primary md-raised" type="submit" value="Add Movie">Add Movie</md-button>
+        </md-input-container>
+    </div> -->
+
+</md-content>
 <div class="allView">
     <br>
     <br>
@@ -21,22 +59,8 @@
     </div>
     <br>
     <br>
-    <!-- <h2 class="headline">Recently Added Movies</h2>
-<br>
-<div class="container">
-    <div class="row">
-        <div class="card border-light m-3" style="width: 15rem;" ng-repeat="movie in vm.movieArray">
-            <img class="card-img-top" ng-src="{{movie.image}}">
-            <div class="card-body">
-                <h4 class="card-title">{{movie.name}}</h4>
-                <h5 class="card-text">{{movie.genre}}</h5>
-                <h6 class="card-text">{{movie.release_date}}</h6>
-                <h6 class="card-text">{{movie.run_time}}</h6>
-            </div>
-            <button ng-click="vm.deleteMovie(movie.id)" class="btn btn-danger">Delete</button>
-        </div>
-    </div>
-</div> -->
+
+
 
 
     <div layout="row" layout-wrap>
