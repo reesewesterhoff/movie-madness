@@ -1,42 +1,7 @@
 <br>
 <br>
 <br>
-<md-content layout="row" layout-padding>
-    <h2>Add A Movie</h2>
-    <br>
-    <br>
-    <div>
-        <md-input-container flex>
-            <label>Title</label>
-            <input required ng-model="vm.movieToSend.name" type="text">
-        </md-input-container>
 
-        <md-input-container flex>
-            <select required ng-options="genre.id as genre.name for genre in vm.genreArray" ng-model="vm.movieToSend.genre_id">
-                <option value="" disabled>----Please Select----</option>
-            </select>
-        </md-input-container>
-
-        <md-input-container flex>
-            <md-datepicker required ng-model="vm.movieToSend.release_date" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
-        </md-input-container>
-
-        <md-input-container flex>
-            <label>HH:MM</label>
-            <input required ng-model="vm.movieToSend.run_time" type="text">
-        </md-input-container>
-
-        <md-input-container flex>
-            <label>Image URL</label>
-            <input required ng-model="vm.movieToSend.image" type="text">
-        </md-input-container>
-
-        <md-input-container flex>
-            <md-button class="md-primary md-raised" type="submit" value="Add Movie">Add Movie</md-button>
-        </md-input-container>
-    </div>
-
-</md-content>
 <div class="allView">
     <br>
     <br>

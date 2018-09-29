@@ -12,6 +12,7 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
         }).then(function (response) {
             vm.movieToSend = {};
             vm.getMovies();
+            $mdToast.show($mdToast.simple().textContent('Movie successfully added to My Movies!'));
         }).catch(function (error) {
             console.log('error posting new movie to server', error);
         });
