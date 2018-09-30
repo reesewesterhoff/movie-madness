@@ -1,5 +1,6 @@
 movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function ($http, $mdDialog, $mdToast) {
     let vm = this;
+    // movie object defaults thumbs up, down, and favorite to false
     vm.movieToSend = {
         thumbs_down: false,
         thumbs_up: false,
@@ -9,6 +10,7 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
     vm.genreArray = [];
     vm.favoritesArray = [];
 
+    //post request to server to create new movie
     vm.addMovie = function () {
         $http({
             method: 'POST',
@@ -27,11 +29,13 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
         });
     }
 
+    // get request to server for all movies
     vm.getMovies = function () {
         $http({
             method: 'GET',
             url: '/add'
         }).then(function (response) {
+            // moment.js to format release date and run time
             vm.movieArray = response.data.map(function (movie) {
                 movie.release_date = moment(movie.release_date).format("M/D/YYYY");
                 movie.run_time = moment(movie.run_time, 'hh:mm:ss').format('h:mm');
@@ -42,9 +46,10 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
         });
     }
 
+    // delete request to server, delete by id
     vm.deleteMovie = function (movieID) {
 
-        // Appending dialog to document.body to cover sidenav in docs app
+        // $mdDialog to confirm deletion
         let confirm = $mdDialog.confirm()
             .title('Are you sure you want to delete this title?')
             .textContent('You cannot undo this action')
@@ -52,7 +57,7 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
             .targetEvent(movieID)
             .ok('Yes!')
             .cancel('Cancel');
-
+        // confirm delete
         $mdDialog.show(confirm).then(function () {
             $http({
                 method: 'DELETE',
@@ -68,7 +73,8 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
 
 
     }
-
+    
+    // get genres for dropdown genre menu
     vm.getGenres = function () {
         $http({
             method: 'GET',
@@ -80,6 +86,7 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
         });
     }
 
+    // add movie to favorites page, trying to use for loop to avoid duplicate favorites, not working
     vm.addToFavorites = function (movie) {
         // console.log('this is the movie being added', movie);
         // console.log(vm.favoritesArray);
@@ -95,7 +102,6 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
             url: '/favorites',
             data: movie
         }).then(function (response) {
-            console.log(response);
             vm.favoritesArray.push(movie);
             $mdToast.show($mdToast.simple().textContent('Movie successfully added to your favorites!'));
         }).catch(function (error) {
@@ -105,6 +111,7 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
         //    }
     }
 
+    // get movies and genres on page load
     vm.getGenres();
     vm.getMovies();
 }]);

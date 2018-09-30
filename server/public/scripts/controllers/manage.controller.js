@@ -3,19 +3,21 @@ movieApp.controller('ManageController', ['$http', '$mdDialog', '$mdToast', funct
     vm.genreToSend = {};
     vm.genreArray = [];
 
+    // post request to server to make a new genre
     vm.addGenre = function () {
         $http({
             method: 'POST',
             url: '/manage',
             data: vm.genreToSend
         }).then(function (response) {
-            vm.genreToSend = {};
-            vm.getGenres();
+            vm.genreToSend = {}; // clear input field
+            vm.getGenres(); // update page with new genre
         }).catch(function (error) {
             console.log('error posting new genre to server', error);
         });
     }
 
+    // get request to server for all genres on page load
     vm.getGenres = function () {
         $http({
             method: 'GET',
@@ -27,11 +29,12 @@ movieApp.controller('ManageController', ['$http', '$mdDialog', '$mdToast', funct
         });
     }
 
+    // delete request to server
     vm.deleteGenre = function (genre) {
-        if (genre.count > 0) {
+        if (genre.count > 0) { // cannot delete a genre with active movies
             $mdToast.show($mdToast.simple().textContent('Cannot delete a genre with active movies!'));
         }
-        else {
+        else { // $mdDialog confirm deletion
             let confirm = $mdDialog.confirm()
                 .title('Are you sure you want to delete this genre?')
                 .textContent('You cannot undo this action')
@@ -40,6 +43,7 @@ movieApp.controller('ManageController', ['$http', '$mdDialog', '$mdToast', funct
                 .ok('Yes!')
                 .cancel('Cancel');
 
+            // delete confirmed
             $mdDialog.show(confirm).then(function () {
                 $http({
                     method: 'DELETE',
@@ -58,6 +62,7 @@ movieApp.controller('ManageController', ['$http', '$mdDialog', '$mdToast', funct
 
     }
 
+    // get all genres on page load
     vm.getGenres();
 
 }]);

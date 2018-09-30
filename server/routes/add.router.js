@@ -19,20 +19,20 @@ router.post('/', (req, res) => {
         res.sendStatus(500);
     });
 });
-
+// get request to database for all movies
 router.get('/', (req, res) => {
     pool.query(`SELECT "movie"."id", "movie"."name", "movie"."genre_id", "movie"."release_date", "movie"."run_time", "movie"."image", "genre"."name" AS "genre" 
                 FROM "movie"
                 JOIN "genre" ON "movie"."genre_id"="genre"."id"
                 ORDER BY "id" DESC;`)
     .then(results => {
-        res.send(results.rows);
+        res.send(results.rows); // send movies to server
     }).catch(error => {
         console.log('error getting movies from database', error);
         res.sendStatus(500);
     });
 });
-
+// delete request to database, find movie by id and delete
 router.delete('/:id', (req, res) => {
     pool.query(`DELETE FROM "movie"
     WHERE "id"=$1;`, [req.params.id])
@@ -43,5 +43,5 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(500);        
     });
 });
-
+// exports
 module.exports = router;

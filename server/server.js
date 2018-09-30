@@ -1,5 +1,4 @@
-console.log('server js loaded');
-
+// requires and constants
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -10,6 +9,7 @@ const addRouter = require('./routes/add.router');
 const manageRouter = require('./routes/manage.router');
 const favoritesRouter = require('./routes/favorites.router.js');
 
+//uses
 app.use(express.static('server/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -19,7 +19,7 @@ app.use('/manage', manageRouter);
 app.use('/favorites', favoritesRouter);
 
 
-
+// spin up server
 app.listen(PORT, () => {
     console.log('server up on port:', PORT); 
 });
