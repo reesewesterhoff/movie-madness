@@ -37,14 +37,22 @@
          </form>
      
      </md-content>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <md-input-container flex>
+            <label>Search</label>
+            <input ng-model="vm.searchString"  type="text">
+        </md-input-container>
 <div class="allView">
     <br>
     <br>
     <br>
     <br>
-    <br>
     <div layout="row" layout-wrap>
-        <md-card ng-repeat="movie in vm.movieArray">
+        <md-card ng-repeat="movie in vm.movieArray | filter: vm.searchString">
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">{{movie.name}}</span>
@@ -79,3 +87,5 @@
         </md-card>
     </div>
 </div>
+<br>
+<br>
