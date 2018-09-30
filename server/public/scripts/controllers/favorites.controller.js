@@ -40,7 +40,7 @@ movieApp.controller('FavoritesController', ['$http', '$mdDialog', '$mdToast', fu
             }).catch(function (error) {
                 console.log('error deleting movie from server', error);
             });
-            $mdToast.show($mdToast.simple().textContent('Movie successfully deleted!'));
+            $mdToast.show($mdToast.simple().textContent('Favorite successfully deleted!'));
         }, function () {
         });
 

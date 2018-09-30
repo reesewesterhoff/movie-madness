@@ -1,8 +1,13 @@
 movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function ($http, $mdDialog, $mdToast) {
     let vm = this;
-    vm.movieToSend = {};
+    vm.movieToSend = {
+        thumbs_down: false,
+        thumbs_up: false,
+        favorite: false
+    };
     vm.movieArray = [];
     vm.genreArray = [];
+    vm.favoritesArray = [];
 
     vm.addMovie = function () {
         $http({
@@ -10,7 +15,11 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
             url: '/add',
             data: vm.movieToSend
         }).then(function (response) {
-            vm.movieToSend = {};
+            vm.movieToSend = {
+                thumbs_down: false,
+                thumbs_up: false,
+                favorite: false
+            };
             vm.getMovies();
             $mdToast.show($mdToast.simple().textContent('Movie successfully added to My Movies!'));
         }).catch(function (error) {
@@ -57,7 +66,7 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
         }, function () {
         });
 
-        
+
     }
 
     vm.getGenres = function () {
@@ -72,15 +81,28 @@ movieApp.controller('AddController', ['$http', '$mdDialog', '$mdToast', function
     }
 
     vm.addToFavorites = function (movie) {
+        // console.log('this is the movie being added', movie);
+        // console.log(vm.favoritesArray);
+        //    for(let favoriteMovie of vm.favoritesArray) {
+        //        console.log('in for loop');
+        //        if(favoriteMovie.id === movie.id) {
+        //         $mdToast.show($mdToast.simple().textContent('Movie already in your favorites!'));
+        //         return movie;
+        //        }
+        //        else {
         $http({
             method: 'POST',
             url: '/favorites',
             data: movie
-        }).then(function(response) {
+        }).then(function (response) {
             console.log(response);
-        }).catch(function(error) {
+            vm.favoritesArray.push(movie);
+            $mdToast.show($mdToast.simple().textContent('Movie successfully added to your favorites!'));
+        }).catch(function (error) {
             console.log('error posting to favorites', error);
         });
+        //        }
+        //    }
     }
 
     vm.getGenres();
