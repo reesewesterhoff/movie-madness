@@ -17,10 +17,10 @@ router.post('/', (req, res) => {
 });
 // get request to database for all favorites
 router.get('/', (req, res) => {
-    pool.query(`SELECT "favorite_movie"."id", "favorite_movie"."name", "favorite_movie"."genre_id", "favorite_movie"."release_date", "favorite_movie"."run_time", "favorite_movie"."image", "genre"."name" AS "genre" 
-    FROM "favorite_movie"
-    JOIN "genre" ON "favorite_movie"."genre_id"="genre"."id"
-    ORDER BY "id" DESC;`) // order movies by most recently added
+    pool.query(`SELECT DISTINCT ON ("favorite_movie"."name") "favorite_movie"."name", "favorite_movie"."id", "favorite_movie"."genre_id", 
+                "favorite_movie"."release_date", "favorite_movie"."run_time", "favorite_movie"."image", "genre"."name" AS "genre" 
+                FROM "favorite_movie"
+                JOIN "genre" ON "favorite_movie"."genre_id"="genre"."id";`) // order movies by most recently added
     .then(results => {
         res.send(results.rows); // send favorites to server
     }).catch(error => {
