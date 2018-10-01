@@ -26,6 +26,7 @@ md-content {
 md-card {
     background-color: rgb(255, 245, 245);
     background-image: linear-gradient(rgb(243, 151, 228),white);
+    width: 300px;
 }
 
 md-input-container {

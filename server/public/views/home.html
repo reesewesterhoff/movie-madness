@@ -1,6 +1,9 @@
 <br>
 <br>
 <br>
+<h2>Popular Movies</h2>
+<br>
+<br>
 <!-- display movies from themoviedb with angular cards -->
 <div layout="row" layout-wrap>
         <md-card ng-repeat="movie in vm.movieArray">
@@ -12,11 +15,12 @@
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
-                <div class="md-media-xl card-media"><img style="width: 200px;" ng-src="https://api.themoviedb.org/3{{movie.results.poster_path}}"></div>
+                <div class="md-media-xl card-media"><img style="width: 200px;" ng-src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}"></div>
                 <br>
                 <br>
                 <br>
-                <div>
+                <!-- icons not working yet -->
+                <!-- <div>
                     <md-card-actions layout="row">
                         <md-button id="thumbDown" ng-click="toggleDown = !toggleDown" class="md-icon-button" aria-label="Favorite">
                             <md-icon ng-class="{'red':toggleDown}">thumb_down_alt</md-icon>
@@ -32,7 +36,7 @@
                             <md-icon>delete</md-icon>
                         </md-button>
                     </md-card-actions>
-                </div>
+                </div> -->
             </md-card-content>
         </md-card>
     </div>
