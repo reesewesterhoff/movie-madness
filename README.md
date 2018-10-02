@@ -1,5 +1,3 @@
-# movie-madness
-
 ## Description
 This is a movie application that one might use to keep track of their favorite movies or movies they want to watch. On the home page there is a get request to themoviedb api for popular movies. They are displayed using angular cards. On the My Movies view users are able to add movies by inputting information about the movie. Those movies are also displayed with angular cards and have icons on the bottom of the card. Users have the option to thumbs up, thumbs down, favorite, or delete a movie. Currently, the thumbs up and thumbs down icons simply toggle a color indicating that the user likes or does not like that movie. The favorite icon (heart) takes that movie and posts it over to the favorites view. The delete icon (trash can) deletes the movie from the DOM and the database. The Favorites view displays all of a users favorited movies with the option to delete any movie they choose.
 
@@ -10,9 +8,20 @@ This is a movie application that one might use to keep track of their favorite m
 - AngularJS
 - Angular Material
 - Moment.js
+- themoviedb API
+
+## Setup and use
+This app is live on Heroku at: https://movie-monitor.herokuapp.com/#!/.
+If you would like to use it locally, fork and clone the github repository to you machine, open the project, run the command 
+`npm install` in your terminal inside the project folder. Refer to the database queries section below to set up the SQL database.
 
 ### Database Queries
 - database name: movie_collection
+
+CREATE TABLE "genre" (
+	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR(255)
+);
 
 CREATE TABLE "movie" (
 	"id" SERIAL PRIMARY KEY,
@@ -26,33 +35,6 @@ CREATE TABLE "movie" (
 	"favorite" BOOLEAN
 );
 
-CREATE TABLE "genre" (
-	"id" SERIAL PRIMARY KEY,
-	"name" VARCHAR(255)
-);
-
-INSERT INTO "movie" ("name", "genre_id", "release_date", "run_time", "image")
-VALUES ('The Matrix', 2, '1999/03/31', '02:16', 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,665,1000_AL_.jpg');
-
-SELECT * FROM "movie";
-
-DELETE FROM "movie"
-WHERE "id"=4;
-
-INSERT INTO "genre" ("name")
-VALUES ('Suspense'), ('Sci-Fi'), ('Adventure'), ('Horror'), ('Musical');
-
-SELECT * FROM "genre";
-
-SELECT "genre"."id","genre"."name", COUNT("movie"."genre_id"), "movie"."genre_id" FROM "genre"
-LEFT OUTER JOIN "movie" ON "movie"."genre_id"="genre"."id"
-GROUP BY "genre"."id", "movie"."genre_id"
-ORDER BY "genre"."name";
-
-SELECT "movie"."id", "movie"."name", "movie"."genre_id", "movie"."release_date", "movie"."run_time", "movie"."image", "genre"."name" AS "genre" 
-FROM "movie"
-JOIN "genre" ON "movie"."genre_id"="genre"."id";
-
 CREATE TABLE "favorite_movie" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(255) NOT NULL,
@@ -62,7 +44,10 @@ CREATE TABLE "favorite_movie" (
 	"image" VARCHAR
 );
 
-SELECT * FROM "favorite_movie";
+
+INSERT INTO "genre" ("name")
+VALUES ('Suspense'), ('Sci-Fi'), ('Adventure'), ('Horror'), ('Musical');
+
 
 INSERT INTO "movie" ("name", "genre_id", "release_date", "run_time", "image", "thumbs_down", "thumbs_up", "favorite")
 VALUES ('The Matrix', 2, '1999/03/31', '02:16', 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,665,1000_AL_.jpg', FALSE, FALSE, FALSE),
