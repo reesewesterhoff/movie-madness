@@ -16,8 +16,9 @@ If you would like to use it locally, fork and clone the github repository to you
 `npm install` in your terminal inside the project folder. Refer to the database queries section below to set up the SQL database.
 
 ### Database Queries
-- database name: movie_collection
+- database name: `movie_collection`
 
+```SQL
 CREATE TABLE "genre" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(255)
@@ -44,13 +45,14 @@ CREATE TABLE "favorite_movie" (
 	"image" VARCHAR
 );
 
-
+--Dummy data
 INSERT INTO "genre" ("name")
 VALUES ('Suspense'), ('Sci-Fi'), ('Adventure'), ('Horror'), ('Musical');
 
-
+--Dummy data
 INSERT INTO "movie" ("name", "genre_id", "release_date", "run_time", "image", "thumbs_down", "thumbs_up", "favorite")
 VALUES ('The Matrix', 2, '1999/03/31', '02:16', 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,665,1000_AL_.jpg', FALSE, FALSE, FALSE),
 ('The Princess Bride', 3, '1987/10/09', '01:38', 'https://m.media-amazon.com/images/M/MV5BMGM4M2Q5N2MtNThkZS00NTc1LTk1NTItNWEyZjJjNDRmNDk5XkEyXkFqcGdeQXVyMjA0MDQ0Mjc@._V1_SY1000_CR0,0,676,1000_AL_.jpg', FALSE, FALSE, FALSE),
 ('Alien', 2, '1979/06/22', '01:56', 'https://m.media-amazon.com/images/M/MV5BMmQ2MmU3NzktZjAxOC00ZDZhLTk4YzEtMDMyMzcxY2IwMDAyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,678,1000_AL_.jpg', FALSE, FALSE, FALSE),
 ('La La Land', 5, '2016/12/25', '02:08', 'https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SY1000_SX675_AL_.jpg', FALSE, FALSE, FALSE);
+```
